@@ -1,0 +1,76 @@
+﻿@page
+@model CV.Pages.CVDetailsModel
+@{
+    var user = Model.userViewModel;
+}
+@*<div class="row cv-header">
+    <h2>@user.FullName</h2>
+</div>*@
+<div class="row cv-details">
+    <div class=" col-sm-4 col-md-4 col-lg-4 col-xs-4 cv-details-left">
+        <img src="~/images/@user.Image" class="details-image img-fluid" />
+    </div>
+    <div class="col-sm-8 col-md-8 col-lg-8 col-xs-8 cv-details-right">
+        <div class="user-name">
+            <h3>@user.FullName</h3>
+        </div>
+        <div class="seperator"></div>
+        <div class="user-details">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-xs-4">
+                    <p class="details-title">Date of Birth </p>
+                </div>
+                <div class="col-sm-8 col-md-8 col-xs-8">
+                    <p class="details-details">@user.Birthdate</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-xs-4">
+                    <p class="details-title">Gender</p>
+                </div>
+                <div class="col-sm-8 col-md-8 col-xs-8">
+                    <p class="details-details">@user.Gender</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-xs-4">
+                    <p class="details-title">Nationality</p>
+                </div>
+                <div class="col-sm-8 col-md-8 col-xs-8">
+                    <p class="details-details">@user.Nationality</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-xs-4">
+                    <p class="details-title">Grade</p>
+                </div>
+                <div class="col-sm-8 col-md-8 col-xs-8">
+                    <p class="details-details">@user.Grade</p>
+                </div>
+            </div>
+        </div>
+        <div class="seperator"></div>
+        <div class="row user-skills">
+            <div class="col-sm-4 col-xs-4 col-lg-4 col-md-4">
+                <p class="details-title">Skills</p>
+            </div>
+            <div class="col-sm-8 col-xs-8 col-lg-8 col-md-8">
+                <div class="row">
+                    @{
+                        foreach (var skill in user.Skills)
+                        {
+                            <div class="col-sm-2 col-xs-2 col-lg-2 col-md-2">
+                                <p class="details-details">@skill</p>
+
+
+
+                            </div>
+                        }
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+

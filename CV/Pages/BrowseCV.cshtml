@@ -1,0 +1,64 @@
+﻿@page
+@model CV.Pages.BrowseCVModel
+@{
+    var users = Model.UsersList;
+
+}
+<div class="container p-4">
+    @{
+        if (users.Count == 0)
+        {
+            <h1>No CVs available right now</h1>
+            
+        }
+        else
+        {
+            <div class="row p-3">
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6"> <h4>CVs:</h4></div>
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 text-end"> <a asp-page="SendCV" class="btn btn-primary"><i class="bi bi-person-plus"></i> &nbsp Send a CV</a></div>
+            </div>
+            <table class="table table-bordered table-striped mt-3">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Grade</th>
+                    <th></th>
+                </tr>
+                @{
+                    foreach (var user in users)
+                    {
+                        <tr>
+
+                            <td>@user.FirstName</td>
+                            <td>@user.LastName</td>
+                            <td>@user.Email</td>
+                            <td>@user.Gender</td>
+                            <td>@user.Grade</td>
+                            <td class="p-2">
+                                <form method="post" asp-page-handler="Delete">
+                                    <input type="hidden" asp-for="id" value="@user.UserId" />
+                                    <div class="w-8 btn-group" role="group">
+                                        <a asp-page="CVDetails" asp-route-id="@user.UserId" class="btn btn-primary mx-2">
+                                            Details
+                                        </a>
+                                        <a asp-page="Edit" asp-route-id="@user.UserId" class="btn btn-warning mx-2">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                        <button type="submit" id="Confirm" class="btn btn-danger mx-2" onclick="return confirm('Are you sure you want to delete?');">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+
+                    }
+
+                }
+            </table>
+        }
+
+    }
+</div>

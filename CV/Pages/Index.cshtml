@@ -1,0 +1,18 @@
+﻿@page
+@using CV.Models
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="container welcome-div">
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
+            <img src="~/images/237-2374125_submit-your-resume-png-download-cartoon-resume-png-removebg-preview.png" class="img-fluid" />
+        </div>
+         <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 welcome-div-message">
+             <h1>Welcome to CV website</h1>
+             <p>Here you can browse others CVs. You can also send, edit and delete your own CV </p>
+             <Button><a asp-page="SendCV"><i class="bi bi-person-plus"></i> &nbsp Send Your CV Now</a></Button>
+             </div>
+    </div>
+</div>

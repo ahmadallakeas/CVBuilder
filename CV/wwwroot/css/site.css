@@ -1,0 +1,335 @@
+@import url("fonts/fonts.css");
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.form-container {
+    margin: 0 auto;
+    width: 80%
+}
+
+.sendcv-form-label {
+    margin-bottom: 8px;
+    font-family: Poppins;
+    font-size: 20px;
+    color: #2269E8;
+}
+
+.sendcv-form-control {
+    margin-bottom: 5px
+}
+
+    .sendcv-form-control:focus {
+        outline-style: none;
+        box-shadow: none;
+        border-color: #ced4da;
+    }
+
+.submit-button-container {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center
+}
+
+.submit-button {
+    width: 100px;
+    padding: 8px;
+}
+
+.wrapper {
+}
+
+.seperator {
+    border: 1px solid #e4e4e4;
+}
+
+.summarycv-wrapper {
+    font-family: Roboto
+}
+
+
+.summarycv-left, .summarycv-right {
+    margin-top: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 20px 0 20px 0;
+    margin-right: 30px
+}
+
+    .summarycv-left > h3, .summarycv-right > h3 {
+        text-align: left;
+        padding: 10px;
+        color: #e85a4f
+    }
+
+.cv-image {
+    max-height: 330px;
+    width: 100%;
+}
+
+.summarycv-down {
+    margin-top: 20px;
+}
+
+.cv-personal-info {
+    font-family: Roboto;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-text, .info-title {
+    padding-bottom: 4px;
+}
+
+.info-title {
+    font-weight: 800;
+    color: #2269E8;
+    font-family: Oswald;
+    font-size: 20px
+}
+
+.info-text {
+    font-family: Oswald;
+    font-size: 18px
+}
+
+.summarycv-right {
+    margin-right: 0;
+}
+
+.summarycv-right-down {
+    padding: 20px
+}
+
+.skills-list > h4 {
+    margin-bottom: 20px;
+    padding: 10px
+}
+
+.grade-title {
+    font-weight: 500;
+    color: #2269E8;
+    font-family: Oswald
+}
+
+.grade-info {
+    color: #08CB11;
+    padding: 0px
+}
+
+.cv-details {
+    padding: 0px;
+    margin-top: 50px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.cv-details-left {
+    padding: 0px
+}
+
+.details-image {
+    max-height: 474px;
+    width: 100%;
+    height: 100%;
+}
+
+.cv-details-right {
+    padding: 15px
+}
+
+.user-details {
+    padding: 15px
+}
+
+.user-name {
+    font-family: Poppins;
+    color: #e85a4f
+}
+
+.details-row {
+    margin-bottom: 10px
+}
+
+.details-title {
+    font-family: Oswald;
+    font-size: 1.1rem;
+    color: #2269E8;
+}
+
+.details-details {
+    font-family: Oswald;
+    font-size: 1.1rem;
+}
+
+.user-skills {
+    padding: 15px
+}
+
+.nav-ul-container {
+    justify-content: flex-end;
+    margin-right:50px
+}
+
+.my-nav {
+    padding-top: 10px;
+    font-family: "Helvetica";
+}
+
+.nav-title {
+    text-decoration: none;
+    color: #2269E8;
+    font-size: 30px;
+}
+
+    .nav-title:hover {
+        color: #2269E8;
+    }
+
+.nav-ul {
+    list-style: none;
+}
+
+.nav-content {
+    display: inline-block;
+}
+
+    .nav-content a {
+        text-decoration: none;
+        margin-left: 40px;
+        font-family: "Helvetica";
+        font-size: 20px;
+        color: #2269E8;
+    }
+
+    .nav-content a {
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+    }
+
+        .nav-content a::before,
+        .nav-content a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            left: 0;
+        }
+
+        .nav-content a::before {
+            background-color: #2269E8;
+            height: 2px;
+            bottom: 0;
+            transform-origin: 100% 50%;
+            transform: scaleX(0);
+            transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        .nav-content a::after {
+            content: attr(data-replace);
+            height: 100%;
+            top: 0;
+            transform-origin: 100% 50%;
+            transform: translate3d(200%, 0, 0);
+            transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+            color: #54b3d6;
+        }
+
+        .nav-content a:hover::before {
+            transform-origin: 0% 50%;
+            transform: scaleX(1);
+        }
+
+        .nav-content a:hover::after {
+            transform: translate3d(0, 0, 0);
+        }
+
+        .nav-content a span {
+            display: inline-block;
+            transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        .nav-content a:hover span {
+            transform: translate3d(-200%, 0, 0);
+        }
+
+.my-footer {
+    /*  position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin-top: 30px;
+    padding-top: 10px*/
+}
+
+main {
+    min-height: 100%;
+    margin-bottom: 100px
+}
+
+.welcome-div {
+    padding: 10px;
+    margin-top: 20px
+}
+
+.welcome-div-message {
+    padding: 50px;
+    display:flex;
+    flex-direction:column;
+    align-items:center
+}
+
+    .welcome-div-message h1 {
+        font-family: Oswald;
+        color: #e85a4f;
+        font-size: 50px
+    }
+
+    .welcome-div-message p {
+   
+        font-family: Oswald;
+        color: #2269E8;
+        font-size:20px
+    }
+
+    .welcome-div-message button {
+        margin-top: 20px;
+        width:50%;
+        padding:8px 0 8px 0;
+        border:none;
+        border-radius:2px;
+        transition: 0.3s ease-in-out;
+        background-color:gold
+    }
+    .welcome-div-message button a {
+        text-decoration:none;
+        color:#050509;
+        font-family:Oswald;
+        font-size:16px
+    
+    }
+    .welcome-div-message button:hover
+    {
+        background-color:#2269E8;
+        color:#fff
+    }
+    .welcome-div-message button:hover > a
+    {
+       
+        color:#fff
+    }

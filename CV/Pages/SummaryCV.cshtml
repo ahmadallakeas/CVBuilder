@@ -1,0 +1,88 @@
+﻿@page
+@using CV.Models
+@model CV.Pages.SummaryCVModel
+
+@{
+
+
+    var cv = Model.userViewModel;
+}
+
+<div class="summarycv-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-xs-5 col-md-5 col-lg-5 summarycv-left">
+                <h3>About</h3>
+                <img src="~/images/@cv.Image" class="cv-image img-fluid" />
+                <div class="container summarycv-down">
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p class="info-title">Name</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p class="info-text">@cv.FullName</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p class="info-title">Date of Birth </p>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p class="info-text">@cv.Birthdate</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p class="info-title">Gender</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p class="info-text">@cv.Gender</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p class="info-title">Nationality</p>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-xs-6">
+                            <p class="info-text">@cv.Nationality</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 summarycv-right">
+                <h3>Skills</h3>
+                <div class="seperator"></div>
+                <div class="container summarycv-down row summarycv-right-down">
+                    @{
+                        if (cv.Skills.Count == 0)
+                        {
+                            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 skills-list">
+                                <h4 style="text-align:center">No Skills</h4>
+                            </div>
+                        }
+                        else
+                        {
+                            foreach (var skill in cv.Skills)
+                            {
+                                <div class="col-sm-4 col-md-4 col-xs-4 col-lg-4 skills-list">
+                                    <h4>@skill</h4>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+                <div class="seperator"></div>
+                <div class="container summarycv-down">
+                    <h4 class="grade-title">Grade: &nbsp; <span class="grade-info">@cv.Grade</span></h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,99 @@
+﻿@page
+@using CV.Models
+@model CV.Pages.SendCVModel
+
+
+@*@{
+    if(Model.skillsList!=null)
+    foreach(var skill in Model.skillsList)
+    {
+        <h1>skill</h1>
+    }
+
+}*@
+
+
+
+<div class="form-container">
+    <form method="post" class="send-form" asp-page-handler="Send" enctype="multipart/form-data">
+
+        <div class="mb-3">
+            <label asp-for="InputModel.FirstName" class="sendcv-form-label"></label>
+            <input asp-for="InputModel.FirstName" class="form-control sendcv-form-control" />
+            <span asp-validation-for="InputModel.FirstName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="InputModel.LastName" class="sendcv-form-label"></label>
+            <input asp-for="InputModel.LastName" class="form-control sendcv-form-control" />
+            <span asp-validation-for="InputModel.LastName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="InputModel.Birthdate" class="sendcv-form-label"></label>
+            <input asp-for="InputModel.Birthdate" max="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control sendcv-form-control" />
+            <span asp-validation-for="InputModel.Birthdate"></span>
+            <span class="text-danger">@Html.ValidationMessage("WrongDate")</span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="InputModel.Nationality" class="sendcv-form-label" class="text-danger"></label>
+            <select asp-for="InputModel.Nationality" asp-items="Model.listItems" class="form-control sendcv-form-control">
+                <option value="">-- Select Country --</option>
+            </select>
+            <span asp-validation-for="InputModel.Nationality" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="InputModel.Gender" class="sendcv-form-label"></label>
+
+            @{
+                foreach (var gender in Model.genderList)
+                {
+                    <div class="form-check">
+                        <input type="radio" asp-for="InputModel.Gender" value="@gender" class="form-check-input sendcv-form-control" />
+                        <label class="form-check-label sendcv-form-control" for="InputModel.Gender">@gender</label>
+                    </div>
+                }
+            }
+            <span asp-validation-for="InputModel.Gender" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="InputModel.Email" class="sendcv-form-label"></label>
+            <input asp-for="InputModel.Email" class="form-control sendcv-form-control" />
+            <span asp-validation-for="InputModel.Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="InputModel.ConfirmEmail" class="sendcv-form-label"></label>
+            <input asp-for="InputModel.ConfirmEmail" class="form-control sendcv-form-control" />
+            <span class="text-danger">@Html.ValidationMessage("WrongEmail")</span>
+            <span asp-validation-for="InputModel.ConfirmEmail" class="text-danger"></span>
+        </div>
+        <div class="row mb-3">
+            <label class="sendcv-form-label" asp-for="Skills"></label>
+            @{
+                foreach (var skill in Model.skills)
+                {
+                    <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
+                        <input type="checkbox" name="Skills" value="@skill.SkillId" id="@skill.SkillId" class="sendcv-form-control" />&nbsp @skill.SkillName
+                    </div>
+                }
+            }
+            <span asp-validation-for="Skills" class="text-danger sendcv-form-control"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="InputModel.Image" class="sendcv-form-label"></label>
+            <input asp-for="InputModel.Image" class="custom-file-input form-control sendcv-form-control" />
+            <span asp-validation-for="InputModel.Image" class="text-danger"></span>
+            <span class="text-danger">@Html.ValidationMessage("WrongFormat")</span>
+        </div>
+        <div class="mb-3">
+            <p class="sendcv-form-label">Enter the sum of @Model.x and @Model.y</p>
+            <input asp-for="InputModel.Sum" class="form-control sendcv-form-control" />
+            <span asp-validation-for="InputModel.Sum" class="text-danger"></span>
+            <span class="text-danger">@Html.ValidationMessage("WrongSum")</span>
+            <input type="hidden" value="@Model.x" name="firstNumber" />
+            <input type="hidden" value="@Model.y" name="secondNumber" />
+
+        </div>
+        <div class="submit-button-container">
+            <button type="submit" class="btn btn-primary submit-button">Send</button>
+        </div>
+    </form>
+</div>
