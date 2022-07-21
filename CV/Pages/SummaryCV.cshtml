@@ -1,11 +1,10 @@
 ﻿@page
 @using CV.Models
 @model CV.Pages.SummaryCVModel
-
+   
 @{
-
-
     var cv = Model.userViewModel;
+    ViewBag.Title = @cv.FullName + " Summary";
 }
 
 <div class="summarycv-wrapper">

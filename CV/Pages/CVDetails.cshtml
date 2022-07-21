@@ -2,6 +2,7 @@
 @model CV.Pages.CVDetailsModel
 @{
     var user = Model.userViewModel;
+    ViewBag.Title = @user.FullName;
 }
 @*<div class="row cv-header">
     <h2>@user.FullName</h2>
