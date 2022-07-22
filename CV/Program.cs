@@ -3,6 +3,7 @@ using CV.Models;
 using CV.Services;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -32,5 +33,6 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
 
 app.Run();
