@@ -6,7 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Drawing;
 using IHostingEnvironment = Microsoft.Extensions.Hosting.IHostingEnvironment;
 using Microsoft.AspNetCore.Http.Extensions;
-
+using GrapeCity.Documents.Html;
+using GrapeCity.Documents.Pdf;
 
 namespace CV.Pages
 {
